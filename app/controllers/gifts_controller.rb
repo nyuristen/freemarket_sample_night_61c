@@ -11,7 +11,7 @@ class GiftsController < ApplicationController
       @gift = Gift.new
       @gift.images.new
     else
-      flash.now[:alert] = "ログインor新規登録行なってください"
+      flash[:alert] = "ログインor新規登録行なってください"
       redirect_to :new_user_session
     end
   end
@@ -31,8 +31,8 @@ class GiftsController < ApplicationController
   end
   def update
     if @gift.update(gift_params)
-      flash.now[:notice] = "出品商品の編集を完了しました"
-      render :update
+      flash[:notice] = "出品商品の編集を完了しました"
+      redirect_do action: "index"
     else
       flash[:error] = '商品の出品に失敗しました'
       redirect_to action: "edit"

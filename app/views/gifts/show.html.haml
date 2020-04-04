@@ -47,7 +47,7 @@
             #listing-select-wrapper__box.listing-select-wrapper__box
               #grandchild_category.listing-select-wrapper__box--select
                 = Category.find(@gift.category_id).name
-      - if @gift.brand_id.present?
+      - if @gift.brand_id != 0
         .individual-form
           .labels-wrapper
             .label
@@ -55,8 +55,7 @@
             .arbitrary 任意
           %br
           .before-input
-            .brand-box#brand-box
-              -# = @gift.brand.name
+            = @gift.brand.name
       .individual-form
         .labels-wrapper
           .label
@@ -108,7 +107,12 @@
         .before-input
           = "¥#{@gift.price}"
     - if user_signed_in?
-      - if @gift.uesr_id != current_user.id
+      - if @gift.listing_state == 2
+        .hidden-form
+          .cautions 
+            ※出品した商品です
+          = link_to "マイページに戻る", :mypage_listed, id: "submit"
+      - elsif @gift.user_id != current_user.id
         = form_with(url: "/purchase/index", method: :get) do |f|
           = f.hidden_field :gift_id, value: "#{@gift.id}"
           = f.submit "購入確認画面へ進む", id: "pay_btn"
@@ -117,7 +121,7 @@
           .cautions 
             ※出品した商品です
           = link_to "マイページに戻る", :mypage_listed, id: "submit"
-    - else @gift.listing_state != 0
+    - elsif @gift.listing_state != 0
       .hidden-form
         .cautions 
           ※新規登録するか、ログインしてください
