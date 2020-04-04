@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/mypage/identification', to: 'mypage#identification'
   # post '/mypage/update', to: 'mypage#update'
   get '/mypage/profile', to: 'mypage#profile'
+  get '/mypage/listed', to: 'mypage#listed'
   get 'logout/index'
   get '/signup/done', to: 'signup#done'
   get '/signup/index', to: 'signup#index'

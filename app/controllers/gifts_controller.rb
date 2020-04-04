@@ -2,7 +2,6 @@ class GiftsController < ApplicationController
 
   before_action :get_gift, only: [:edit, :update, :show, :destroy]
   before_action :get_category_parents, only: [:new, :edit]
-  before_action :get_brands, only: [:new, :edit]
 
   def index
     @gifts = Gift.includes(:images).order("created_at DESC")
@@ -19,8 +18,8 @@ class GiftsController < ApplicationController
   def create
     @gift = Gift.new(gift_params)
     if @gift.save
-      flash.now[:notice] = "商品の出品に成功しました"
-      render :create
+      flash[:notice] = "商品の出品に成功しました"
+      redirect_to action: "index"
     else
       flash[:alert] = "入力に誤りがあります"
       redirect_to action: "new"
@@ -54,12 +53,6 @@ class GiftsController < ApplicationController
   end
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
-  end
-  def get_brands
-    @brands = [{name: "---", id: nil}]
-    Brand.all.each do |b|
-      @brands << {name: "#{b.name}", id: "#{b.id}"}
-    end
   end
 
   private

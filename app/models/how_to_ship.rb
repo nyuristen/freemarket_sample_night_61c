@@ -1,5 +1,5 @@
 class HowToShip < ActiveHash::Base
-  self.data = [ {id: "nil", name: "---" },
+  self.data = [ {id: "", name: "---" },
     {id: 1, name: "落落フリマ便"},
     {id: 2, name: "youyouメルカリ便"},
     {id: 3, name: "遊メール"},

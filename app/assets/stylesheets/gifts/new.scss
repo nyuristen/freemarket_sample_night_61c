@@ -1,7 +1,9 @@
-.form{
-  width: 100vw;
-  padding-top: 100px;
-  background-color: #f5f5f5;
+.new{
   @import "breadcrumbs";
-  @import "module/listing-form";
+  .form{
+    width: 100vw;
+    background-color: #f5f5f5;
+    @import "module/listing-form";
+    padding-bottom: 50px;
+  }
 }

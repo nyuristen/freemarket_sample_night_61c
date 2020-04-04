@@ -1,0 +1,16 @@
+@import "font-awesome";
+@import "font-awesome-sprockets";
+@import "mypage/variable/variable";
+@import "mypage/mypage-index";
+.mypage-main-content{
+  @import "gifts/module/listed-items";
+  .items{
+    &__item{
+      .labels-wrapper{
+        .label{
+          @include labels(bisque, gray);
+        }
+      }
+    }
+  }
+}
