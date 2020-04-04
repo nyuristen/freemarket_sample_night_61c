@@ -1,3 +1,4 @@
+= render 'shared/header'
 .purchase-main
   .purchase-wrapper
     .purchase__title
@@ -22,3 +23,4 @@
         = f.hidden_field :gift_id, value: "#{@gift.id}", class: "gift_id"
         = f.hidden_field :buyer_id, value: "#{current_user.id}", class: "buyer_id"
         = f.submit "購入する", id: "submit"
+= render 'shared/footer'

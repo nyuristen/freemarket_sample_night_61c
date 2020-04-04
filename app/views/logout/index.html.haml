@@ -1,14 +1,11 @@
-= render partial: "gifts/header"
+= render partial: "shared/header"
 - breadcrumb :logout
 = render partial: "layouts/breadcrumbs"
 .logout-main
   .logout-main-content
     = render 'mypage/modules/mypage-sidebar'
-
     .logout-content
       .logout-btn
         = link_to "ログアウト", destroy_user_session_path, method: :delete
-
-= render "gifts/listing-button"
-= render "gifts/footer"
+= render "shared/footer"
 

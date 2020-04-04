@@ -1,4 +1,4 @@
-= render 'header'
+= render 'shared/header'
 - breadcrumb :show
 = render "layouts/breadcrumbs"
 .show
@@ -127,4 +127,4 @@
           ※新規登録するか、ログインしてください
         = link_to "新規登録", :signup_index, id: "submit"
         = link_to "ログイン", :new_user_session, id: "submit"
-= render 'footer' 
+= render 'shared/footer' 

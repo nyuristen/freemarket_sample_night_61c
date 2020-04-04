@@ -1,0 +1,43 @@
+.items
+  - if user_signed_in?
+    - @gifts_with_brands.where.not(user_id: "#{current_user.id}").first(10).each do |gift|
+      - if gift.listing_state == 2
+        .items__item
+          .item-image
+            = link_to image_tag(Image.find_by(gift_id: "#{gift.id}").name.url), "/gifts/#{gift.id}(.:format)", method: :get
+          .item-discriptions
+            .item-discriptions--name= gift.name
+            .item-discriptions--categories
+              .soldout
+                SOLD OUT
+      - else
+        .items__item
+          .item-image
+            = link_to image_tag(Image.find_by(gift_id: "#{gift.id}").name.url), "/gifts/#{gift.id}(.:format)", method: :get
+          .item-discriptions
+            .item-discriptions--name= gift.name
+            .item-discriptions--categories
+              = "#{Category.find("#{gift.category_id}").parent.parent.name}/#{Category.find("#{gift.category_id}").parent.name}/#{Category.find("#{gift.category_id}").name}/"
+              - if gift.brand_id != 0
+                = "#{gift.brand.name}"
+  - else
+    - @gifts_with_brands.first(10).each do |gift|
+      - if gift.listing_state == 2
+        .items__item
+          .item-image
+            = link_to image_tag(Image.find_by(gift_id: "#{gift.id}").name.url), "/gifts/#{gift.id}(.:format)", method: :get
+          .item-discriptions
+            .item-discriptions--name= gift.name
+            .item-discriptions--categories
+              .soldout
+                SOLD OUT
+      - else
+        .items__item
+          .item-image
+            = link_to image_tag(Image.find_by(gift_id: "#{gift.id}").name.url), "/gifts/#{gift.id}(.:format)", method: :get
+          .item-discriptions
+            .item-discriptions--name= gift.name
+            .item-discriptions--categories
+              = "#{Category.find("#{gift.category_id}").parent.parent.name}/#{Category.find("#{gift.category_id}").parent.name}/#{Category.find("#{gift.category_id}").name}/"
+              - if gift.brand_id != 0
+                = "#{gift.brand.name}"

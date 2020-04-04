@@ -1,4 +1,4 @@
-= render partial: "gifts/header"
+= render "shared/header"
 - breadcrumb :mypage
 = render partial: "layouts/breadcrumbs"
 .mypage-main-content
@@ -32,3 +32,4 @@
             -#   = "#{gift.brand.name}"
           %button.item-discriptions--edit-btn= link_to '編集', edit_gift_path(gift)
           %button.item-discriptions--delete-btn= link_to '削除', mypage_listed_path(gift), method: :delete
+= render 'shared/footer'

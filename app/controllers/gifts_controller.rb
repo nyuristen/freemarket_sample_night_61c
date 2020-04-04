@@ -1,6 +1,7 @@
 class GiftsController < ApplicationController
 
   before_action :get_gift, only: [:edit, :update, :show, :destroy]
+  before_action :get_gift_brands, only: [:index]
   before_action :get_category_parents, only: [:new, :edit]
 
   def index
@@ -53,6 +54,9 @@ class GiftsController < ApplicationController
   end
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+  def get_gift_brands
+    @gifts_with_brands = Gift.where.not(brand_id: 0)
   end
 
   private
