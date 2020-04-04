@@ -13,6 +13,7 @@
 @import "font-awesome-sprockets";
 @import "shared/header";
 @import "shared/footer";
+@import "shared/listing-button";
 @import "shared/flash";
 @import "logout/index";
 @import "devise/new";
@@ -23,15 +24,14 @@
 @import "signup/signup-step3";
 @import "signup/signup-done";
 @import "mypage/variable/flex";
-@import "mypage/variable/mixin";
 @import "mypage/variable/variable";
 @import "mypage/mypage-sidebar";
 @import "mypage/mypage-index";
 @import "mypage/profile";
 @import "mypage/identification";
+@import "font-awesome";
+@import "font-awesome-sprockets";
 
-// @import "mypage/card/index";
-// @import "mypage/card/new";
 @import "breadcrumbs";
 
 @import "cards/index";
