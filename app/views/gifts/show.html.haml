@@ -110,17 +110,20 @@
       - if @gift.listing_state == 2
         .hidden-form
           .cautions 
-            ※出品した商品です
-          = link_to "マイページに戻る", :mypage_listed, id: "submit"
+            ※すでに購入されたか、他のユーザーが交渉中の商品です
+          = link_to "ホーム", :root, id: "submit"
+          = link_to "マイページ", :mypage_listed, id: "submit"
       - elsif @gift.user_id != current_user.id
         = form_with(url: "/purchase/index", method: :get) do |f|
           = f.hidden_field :gift_id, value: "#{@gift.id}"
+          = link_to "ホーム", :root, id: "submit"
           = f.submit "購入確認画面へ進む", id: "pay_btn"
-      - else
+      - else @gift.user_id == current_user.id
         .hidden-form
           .cautions 
             ※出品した商品です
-          = link_to "マイページに戻る", :mypage_listed, id: "submit"
+          = link_to "ホーム", :root, id: "submit"
+          = link_to "マイページ", :mypage_listed, id: "submit"
     - elsif @gift.listing_state != 0
       .hidden-form
         .cautions 

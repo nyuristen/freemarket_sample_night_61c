@@ -43,7 +43,7 @@ class GiftsController < ApplicationController
   end
   def destroy
     @gift.destroy
-    redirect_to root_path
+    redirect_to controller: "mypage", action: "listed"
   end
 
   def get_category_parents

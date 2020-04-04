@@ -24,7 +24,13 @@ class PurchaseController < ApplicationController
     redirect_to action: "done", "gift_id": params[:gift_id], "buyer_id": params[:buyer_id]  #完了画面に移動
   end
   def done
-    Gift.find(@gift.id).update(listing_state: 2, buyer_id: params[:buyer_id])
+    if Gift.find(@gift.id).update(listing_state: 2, buyer_id: params[:buyer_id])
+      flash[:notice] = "出品を購入しました"
+      render :done
+    else
+      flash[:notice] = "購入できませんでした"
+      redirect_to :index
+    end
   end
 
   private

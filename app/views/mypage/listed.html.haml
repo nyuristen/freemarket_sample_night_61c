@@ -23,13 +23,14 @@
             .label
               何これどういう状態？
         .item-image
-          = link_to image_tag(Image.find_by(gift_id: "#{gift.id}").name.url), "/gifts/#{gift.id}(.:format)", method: :get
+          = image_tag Image.find_by(gift_id: "#{gift.id}").name.url
         .item-discriptions
           .item-discriptions--name= gift.name
           .item-discriptions--categories
             = "#{Category.find("#{gift.category_id}").parent.parent.name}/#{Category.find("#{gift.category_id}").parent.name}/#{Category.find("#{gift.category_id}").name}/"
-            -# - if gift.brand_id.present?
-            -#   = "#{gift.brand.name}"
-          %button.item-discriptions--edit-btn= link_to '編集', edit_gift_path(gift)
-          %button.item-discriptions--delete-btn= link_to '削除', mypage_listed_path(gift), method: :delete
+            - if gift.brand_id != 0
+              = "#{gift.brand.name}"
+          - if gift.listing_state != 2
+            %button.item-discriptions--edit-btn= link_to '編集', edit_gift_path(gift)
+          %button.item-discriptions--delete-btn= link_to '削除', gift_path(gift), method: :delete
 = render 'shared/footer'

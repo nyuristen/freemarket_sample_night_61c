@@ -31,23 +31,31 @@ crumb :new do
   link "商品出品", new_gift_path
   parent :root
 end
-crumb :create do
-  link "出品完了", gifts_path, method: :POST
-  parent :new
-end
-
 crumb :edit do
   link "出品商品編集", edit_gift_path
   parent :root
 end
-crumb :update do
-  link "出品商品編集完了", gift_path, method: :PATCH
-  parent :edit
+crumb :show do
+  link "商品詳細", gift_path(params[:id]), method: :get
+  parent :root
+end
+crumb :purchase_index do
+  link "購入確認", purchase_index_path(params[gift_id])
+  parent :show
+end
+crumb :purchase_done do
+  link "購入完了", pay_purchase_index_path(params[:byer_id]), method: :get
+  parent :purchase_index
 end
 
-crumb :show do
-  link "商品詳細", gift_path, method: :GET
-  parent :root
+crumb :card_index do
+  link "クレジットカード一覧＆登録", cards_path
+  parent :mypage
+end
+
+crumb :card_new do
+  link "クレジットカード登録", new_card_path
+  parent :card_index
 end
 
 crumb :mypage do
