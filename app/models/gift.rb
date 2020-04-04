@@ -19,6 +19,7 @@ class Gift < ApplicationRecord
   validate :count_images
 
   extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :brand
   belongs_to_active_hash :status
   belongs_to_active_hash :charge
   belongs_to_active_hash :days

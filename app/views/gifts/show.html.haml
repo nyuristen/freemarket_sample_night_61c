@@ -107,7 +107,7 @@
         %br
         .before-input
           = "¥#{@gift.price}"
-    - if @gift.listing_state != "0" 
+    - if @gift.listing_state != 0 
       .hidden-form
         .cautions 
           ※この商品はすでに購入されているか、他のユーザーが交渉中です

@@ -95,10 +95,7 @@
             = f.label :brand_id, "ブランド"
           .arbitrary 任意
         %br
-        - if @gift.persisted?
-          = f.select :brand_id, options_for_select(@brands.map{|c|[c[:name], c[:id], {'data-sample'=>c[:id]}]}, @gift.brand_id), {}, {class: 'brand-box', id: 'brand-box'}
-        - else
-          = f.select :brand_id, options_for_select(@brands.map{|c|[c[:name], c[:id]]}, 0), {}, {class: 'brand-box', id: 'brand-box'}
+        = f.collection_select :brand_id, Brand.all, :id, :name
       .individual-form
         .labels-wrapper
           .label

@@ -1,7 +1,7 @@
 .items
   - if user_signed_in?
     - @gifts.first(10).each do |gift|
-      - if gift.listing_state == "2"
+      - if gift.listing_state == 2
         .items__item
           .item-image
             = link_to image_tag(Image.find_by(gift_id: "#{gift.id}").name.url), "/gifts/#{gift.id}(.:format)", method: :get
@@ -19,7 +19,7 @@
             .item-discriptions--categories
               = "#{Category.find("#{gift.category_id}").parent.parent.name}/#{Category.find("#{gift.category_id}").parent.name}/#{Category.find("#{gift.category_id}").name}/"
               - if gift.brand_id.present?
-                = "#{Brand.find("#{gift.brand_id}").name}"
+                = "#{gift.brand.name}"
             %button.item-discriptions--edit-btn= link_to '編集', edit_gift_path(gift)
             %button.item-discriptions--delete-btn= link_to '削除', gift_path(gift), method: :delete
       - else
@@ -31,7 +31,7 @@
             .item-discriptions--categories
               = "#{Category.find("#{gift.category_id}").parent.parent.name}/#{Category.find("#{gift.category_id}").parent.name}/#{Category.find("#{gift.category_id}").name}/"
               - if gift.brand_id.present?
-                = "#{Brand.find("#{gift.brand_id}").name}"
+                = "#{gift.brand.name}"
   - else
     - @gifts.first(10).each do |gift|
       .items__item
