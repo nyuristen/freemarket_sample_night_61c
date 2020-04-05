@@ -25,7 +25,6 @@ class PurchaseController < ApplicationController
   end
   def done
     if Gift.find(@gift.id).update(listing_state: 2, buyer_id: params[:buyer_id])
-      flash[:notice] = "出品を購入しました"
       render :done
     else
       flash[:notice] = "購入できませんでした"
