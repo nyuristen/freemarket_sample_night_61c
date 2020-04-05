@@ -14,7 +14,7 @@ class Gift < ApplicationRecord
   validates :region_id, presence: true
   validates :days_id, presence: true
   validates :listing_state, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, inclusion:{in: 50...10000000}
   validates_associated :images
   validate :count_images
 
