@@ -1,14 +1,15 @@
 .show{
   background-color: gray;
   padding-top: 100px;
-    .show-wrapper{
-    width: calc(100vw - 28%);
+  padding-bottom: 50px;
+  .show-wrapper{
+    width: calc(100vw - 20%);
     background-color: white;
     margin-right: auto;
     margin-left: auto;
-    padding-bottom: 50px;
+    @include box-centerise();
     .gift-about, .gift-detail, .gift-ships, .gift-price{
-      @include forms();
+        @include forms();
     }
     form{
       @include textbox-centerise();
@@ -20,8 +21,8 @@
         text-align    : center;      /* 文字位置   */
         cursor        : pointer;     /* カーソル   */
         padding       : 12px 12px;   /* 余白       */
-        background    : #000066;     /* 背景色     */
-        color         : #ffffff;     /* 文字色     */
+        background    : $red;     /* 背景色     */
+        color         : $white;     /* 文字色     */
         line-height   : 1em;         /* 1行の高さ  */
         transition    : .3s;         /* なめらか変化 */
         border        : 2px solid #000066;    /* 枠の指定 */  
@@ -39,8 +40,8 @@
         text-align    : center;      /* 文字位置   */
         cursor        : pointer;     /* カーソル   */
         padding       : 12px 12px;   /* 余白       */
-        background    : #000066;     /* 背景色     */
-        color         : #ffffff;     /* 文字色     */
+        background    : $red;     /* 背景色     */
+        color         : $white;     /* 文字色     */
         line-height   : 1em;         /* 1行の高さ  */
         transition    : .3s;         /* なめらか変化 */
         border        : 2px solid #000066;    /* 枠の指定 */  

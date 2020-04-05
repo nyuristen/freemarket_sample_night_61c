@@ -1,8 +1,7 @@
 .form-wrapper{
-  width: calc(100vw - 28%);
-  background-color: white;
-  margin-right: auto;
-  margin-left: auto;
+  width: calc(100vw - 20%);
+  background-color: $global-background;
+  @include box-centerise();
   & form{
     width: 100%;
     .gift-about, .gift-detail, .gift-ships, .gift-price{
@@ -18,8 +17,8 @@
         text-align    : center;      /* 文字位置   */
         cursor        : pointer;     /* カーソル   */
         padding       : 12px 12px;   /* 余白       */
-        background    : #000066;     /* 背景色     */
-        color         : #ffffff;     /* 文字色     */
+        background    : $red;     /* 背景色     */
+        color         : $white;     /* 文字色     */
         line-height   : 1em;         /* 1行の高さ  */
         transition    : .3s;         /* なめらか変化 */
         border        : 2px solid #000066;    /* 枠の指定 */  

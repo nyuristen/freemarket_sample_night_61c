@@ -1,8 +1,8 @@
 .new{
+  width: 100vw;
   .form{
-    width: 100vw;
-    background-color: #f5f5f5;
-    @import "module/listing-form";
+    padding-top: 100px;
     padding-bottom: 50px;
+    @import "module/listing-form";
   }
 }
