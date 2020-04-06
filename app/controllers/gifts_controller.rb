@@ -43,6 +43,7 @@ class GiftsController < ApplicationController
   end
   def destroy
     @gift.destroy
+    flash[:notice] = "出品商品を削除しました"
     redirect_to controller: "mypage", action: "listed_all"
   end
 

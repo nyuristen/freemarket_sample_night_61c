@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require activestorage
 //= require_tree .
+
+$(function(){
+  setTimeout("$('.notifications').fadeOut('slow')", 1000) 
+})
