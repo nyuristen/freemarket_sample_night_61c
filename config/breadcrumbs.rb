@@ -36,17 +36,17 @@ crumb :edit do
   parent :root
 end
 crumb :show do
-  link "商品詳細", gift_path(params[:gift_id]), method: :get
+  link "商品詳細", gift_path(params[:id]), method: :get
   parent :root
 end
-crumb :purchase_index do
-  link "購入確認", purchase_index_path(params[:gift_id])
-  parent :show
-end
-crumb :purchase_done do
-  link "購入完了", pay_purchase_index_path(params[:buyer_id]), method: :get
-  parent :purchase_index
-end
+# crumb :purchase_index do
+#   link "購入確認", purchase_index_path(params[:gift_id])
+#   parent :show
+# end
+# crumb :purchase_done do
+#   link "購入完了", pay_purchase_index_path(params[:buyer_id]), method: :get
+#   parent :purchase_index
+# end
 
 crumb :card_index do
   link "クレジットカード一覧＆登録", cards_path
