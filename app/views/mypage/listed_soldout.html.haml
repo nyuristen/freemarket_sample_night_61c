@@ -1,0 +1,24 @@
+= render "shared/header"
+- breadcrumb :mypage
+= render partial: "layouts/breadcrumbs"
+.mypage-main-content
+  = render 'mypage/modules/mypage-sidebar'
+  .items
+    - if @gifts.where(listing_state: 2).blank?
+      .items__item
+        売却済商品はありません
+    - else
+      - @gifts.where(listing_state: 2).first(10).each do |gift|
+        .items__item
+          .labels-wrapper
+            .label
+              売却済
+          .item-image
+            = image_tag Image.find_by(gift_id: "#{gift.id}").name.url
+          .item-discriptions
+            .item-discriptions--name= gift.name
+            .item-discriptions--categories
+              = "#{Category.find("#{gift.category_id}").parent.parent.name}/#{Category.find("#{gift.category_id}").parent.name}/#{Category.find("#{gift.category_id}").name}/"
+              - if gift.brand_id != 0
+                = "#{gift.brand.name}"
+= render 'shared/footer'

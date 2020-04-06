@@ -1,7 +1,7 @@
 class MypageController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_items, only: [:listed_all]
+  before_action :set_items, only: [:listed_all, :listed_listing, :listed_negotiating, :listed_soldout]
 
   def index
     # @products = Product.page(params[:page]).per(10)
@@ -13,7 +13,12 @@ class MypageController < ApplicationController
   end
   def listed_all
   end
-
+  def listed_listing
+  end
+  def listed_negotiating
+  end
+  def listed_soldout
+  end
 
   private
   def address_params
