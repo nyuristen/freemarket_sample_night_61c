@@ -1,7 +1,7 @@
 class MypageController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_items, only: [:listed]
+  before_action :set_items, only: [:listed_all]
 
   def index
     # @products = Product.page(params[:page]).per(10)
@@ -11,7 +11,7 @@ class MypageController < ApplicationController
   def identification 
     @address= Address.find_by(user_id: current_user.id)  
   end
-  def listed
+  def listed_all
   end
 
 

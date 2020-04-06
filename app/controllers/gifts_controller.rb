@@ -33,7 +33,7 @@ class GiftsController < ApplicationController
   def update
     if @gift.update(gift_params)
       flash[:notice] = "出品商品の編集を完了しました"
-      redirect_to controller: "mypage", action: "listed"
+      redirect_to controller: "mypage", action: "listed_all"
     else
       flash[:error] = '商品の出品に失敗しました'
       redirect_to action: "edit"
@@ -43,7 +43,7 @@ class GiftsController < ApplicationController
   end
   def destroy
     @gift.destroy
-    redirect_to controller: "mypage", action: "listed"
+    redirect_to controller: "mypage", action: "listed_all"
   end
 
   def get_category_parents
