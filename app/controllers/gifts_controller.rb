@@ -33,7 +33,7 @@ class GiftsController < ApplicationController
   def update
     if @gift.update(gift_params)
       flash[:notice] = "出品商品の編集を完了しました"
-      redirect_to action: "index"
+      redirect_to controller: "mypage", action: "listed"
     else
       flash[:error] = '商品の出品に失敗しました'
       redirect_to action: "edit"
