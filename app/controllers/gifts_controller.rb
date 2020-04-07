@@ -22,7 +22,7 @@ class GiftsController < ApplicationController
       flash[:notice] = "商品の出品に成功しました"
       redirect_to action: "index"
     else
-      flash[:alert] = "入力に誤りがあります"
+      flash[:alert] = @gift.errors.full_messages
       redirect_to action: "new"
     end
   end
@@ -35,16 +35,20 @@ class GiftsController < ApplicationController
       flash[:notice] = "出品商品の編集を完了しました"
       redirect_to controller: "mypage", action: "listed_all"
     else
-      flash[:error] = '商品の出品に失敗しました'
+      flash[:alert] = @gift.errors.full_messages
       redirect_to action: "edit"
     end
   end
   def show
   end
   def destroy
-    @gift.destroy
-    flash[:notice] = "出品商品を削除しました"
-    redirect_to controller: "mypage", action: "listed_all"
+    if @gift.destroy
+      flash[:notice] = "出品商品を削除しました"
+      redirect_to controller: "mypage", action: "listed_all"
+    else
+      flash[:alert] = @gift.errors.full_messages
+      redirect_to controller: "mypage", action: "listed_all"
+    end
   end
 
   def get_category_parents
