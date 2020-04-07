@@ -9,18 +9,5 @@
         出品した商品はありません
     - else
       - @gifts.where(listing_state: 0).first(10).each do |gift|
-        .items__item
-          .labels-wrapper
-            .label
-              出品中
-          .item-image
-            = image_tag Image.find_by(gift_id: "#{gift.id}").name.url
-          .item-discriptions
-            .item-discriptions--name= gift.name
-            .item-discriptions--categories
-              = "#{Category.find("#{gift.category_id}").parent.parent.name}/#{Category.find("#{gift.category_id}").parent.name}/#{Category.find("#{gift.category_id}").name}/"
-              - if gift.brand_id != 0
-                = "#{gift.brand.name}"
-            %button.item-discriptions--edit-btn= link_to '編集', edit_gift_path(gift)
-            %button.item-discriptions--delete-btn= link_to '削除', gift_path(gift), method: :delete
+        = render partial: 'mypage/modules/mypage-listed-items', locals: { gift: gift }
 = render 'shared/footer'

@@ -9,32 +9,5 @@
         出品した商品はありません
     - else
       - @gifts.first(10).each do |gift|
-        .items__item
-          .labels-wrapper
-            - if gift.listing_state == 0
-              .label
-                出品中
-            - elsif gift.listing_state == 1
-              .label
-                交渉中
-            - elsif gift.listing_state == 2
-              .label
-                売却済
-            - elsif gift.listing_state == 3
-              .label
-                公開停止
-            - else 
-              .label
-                何これどういう状態？
-          .item-image
-            = image_tag Image.find_by(gift_id: "#{gift.id}").name.url
-          .item-discriptions
-            .item-discriptions--name= gift.name
-            .item-discriptions--categories
-              = "#{Category.find("#{gift.category_id}").parent.parent.name}/#{Category.find("#{gift.category_id}").parent.name}/#{Category.find("#{gift.category_id}").name}/"
-              - if gift.brand_id != 0
-                = "#{gift.brand.name}"
-            - if gift.listing_state != 2
-              %button.item-discriptions--edit-btn= link_to '編集', edit_gift_path(gift)
-            %button.item-discriptions--delete-btn= link_to '削除', gift_path(gift), method: :delete
+        = render partial: 'mypage/modules/mypage-listed-items', locals: { gift: gift }
 = render 'shared/footer'
