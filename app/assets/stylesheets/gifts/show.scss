@@ -1,10 +1,10 @@
 .show{
-  background-color: $global-background;
   padding-top: 100px;
   padding-bottom: 50px;
+  background-color: $white;
   .show-wrapper{
     width: calc(100vw - 20%);
-    background-color: white;
+    background-color: $global-background;
     margin-right: auto;
     margin-left: auto;
     @include box-centerise();
