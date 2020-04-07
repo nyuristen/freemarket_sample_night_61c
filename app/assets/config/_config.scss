@@ -11,17 +11,18 @@ $white:#fff;
 $gray:#eee;
 $hover-gray:#fafafa;
 $red:#ea352d;
+$blue: rgb(108, 199, 235);
 $before-link: rgb(42, 33, 33);
 $after-link: rgb(139, 154, 236);
 $fix-link: rgb(250, 230, 230);
 $link-blue: #0099e8;
 $font-black: #333333;
 $font-white: rgb(240, 243, 198);
+$font-red: #ea352d;
+$font-blue: rgb(108, 199, 235);
+
 
 // ボックスサイズ
-a {
-  text-decoration: none;
-}
 .display_none {
   display: none;
 }

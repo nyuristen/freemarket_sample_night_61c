@@ -16,5 +16,5 @@
 //= require_tree .
 
 $(function(){
-  setTimeout("$('.notifications').fadeOut('slow')", 1000) 
+  setTimeout("$('.notification').fadeOut('slow')", 10000) 
 })

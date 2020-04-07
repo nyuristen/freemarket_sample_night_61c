@@ -1,10 +1,10 @@
 a{
-  color: white;
+  color: $white;
   .listing-button{
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    background-color:#0099e8;
+    background-color: $blue;
     margin: 20px;
     padding: 10px;
     position: fixed;
@@ -16,12 +16,12 @@ a{
       font-size: 30px;
       @include textbox-centerise();
       .fas {
-        color: #fff;
+        color: $white;
       }
     }
     p{
       font-size: 25px;
-      color: #fff;
+      color: $white;
       text-align: center;
       padding: 7px;
       display: inline-block;

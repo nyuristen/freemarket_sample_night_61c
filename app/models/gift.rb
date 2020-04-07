@@ -28,7 +28,7 @@ class Gift < ApplicationRecord
 
   private
   def count_images
-    errors.add(:image, "は1枚以上") if images.size == 0
-    eorros.add(:image, "は10枚以下") if images.size > 10
+    errors.add(:image, "は1枚以上選択してください") if images.size == 0
+    eorros.add(:image, "は10枚以下にしてください") if images.size > 10
   end
 end

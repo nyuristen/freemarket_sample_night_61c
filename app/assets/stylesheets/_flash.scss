@@ -1,13 +1,13 @@
 // notice, alert
-.notifications {
+.notification {
   text-align: center;  
   .notice {
-    background-color: lightBlue;
-    color: $font-white;
+    background-color: $red;
+    color: $white;
   }
   .alert {
-    background-color: orange;
-    color: $font-white;
+    background-color: $red;
+    color: $white;
   }
 }
 .alert.alert-warning{
@@ -15,7 +15,6 @@
     li{
       color: #ea352d;
       font-size: 15px;
-      
     }
   }
 }

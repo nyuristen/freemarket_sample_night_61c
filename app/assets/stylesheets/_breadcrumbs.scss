@@ -4,11 +4,11 @@
   width: 100%;
   margin: 0 auto;
   font-size: 15px;
-  background-color: rosybrown;
+  background-color: $blue;
   @include flex-box();
   .breadcrumbs--list{
     a {
-      color: #333;
+      color: $font-white;
       text-decoration: none;
     }
   }

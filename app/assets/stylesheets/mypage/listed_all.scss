@@ -4,7 +4,8 @@
     &__item{
       .labels-wrapper{
         .label{
-          @include labels(bisque, gray);
+          @include labels($blue, $font-white);
+          @include textbox-centerise();
         }
       }
     }
