@@ -20,23 +20,23 @@
           %i.far.fa-caret-square-down
       - if user_signed_in?
         %ul.right-menu
-          %li
+          %li.right-menu__nice-tag
             = link_to "#" do
               = fa_icon 'heart', class: "icon-gray"
               %span いいね一覧
-          %li
+          %li.right-menu__news
             = link_to "#" do
               = fa_icon 'bell', class: "icon-gray"
               %span お知らせ
-          %li
+          %li.right-menu__todo
             = link_to "#" do
               = fa_icon 'check', class: "icon-gray"
               %span やることリスト
-          %li
+          %li.right-menu__mypage
             = link_to mypage_index_path do
-              .header-bottom__right--image 
               %span マイページ
       - else
+        %ul.middle-menu
         %ul.right-menu
           %li.right-menu__sign_up
             = link_to "新規会員登録",signup_index_path, class: "btn registration"

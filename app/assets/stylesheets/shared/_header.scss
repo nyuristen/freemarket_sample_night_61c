@@ -1,17 +1,18 @@
 .header{
-  width: 72%;
-  margin: 0 auto;
+  width: 100vw;
   padding: 10px;
   padding-bottom: 45px;
   // position: fixed;
-  background-color: white;
+  background-color: $white;
   display: flex;
   z-index: 1;
   .wrapper{
-    width: calc(100vw - 200px);
-    @include box-centerise();
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px;
     .upper{
       width: 100%;
+      padding-bottom: 10px;
       @include flex-box();
       &__logo{
         width: 200px;
@@ -48,9 +49,10 @@
     .under{
       width: 100%;
       position: relative;
+      flex-wrap: wrap;
+      @include flex-box();
       .left-menu{
         padding: 5px;
-        position: absolute;
         left: 0;
         @include flex-box;
         &__categoly{
@@ -71,46 +73,27 @@
           }
         }
       }
+      .middle-menu{
+        width: 30%;
+      }
       .right-menu{
         padding: 5px;
-        position: absolute;
-        right: 0;
         @include flex-box();
-        
-        &__sign_up{
-          // font-size: 13px;
-          // // color: white;
-          // background-color: red;
-          // margin-right: 10px;
-          // border-radius: 5px;
-          // border: solid 2px red;
-          
+        .registration, &__news, &__mypage{
+          @include buttons($red, $font-black, $red, $font-white);
         }
-        &__sigin_in{
-          // font-size: 13px;
-          // // color: skyblue;
-          // border-radius: 5px;
-          // border: solid 2px skyblue;
-          
-        }
-        li{
-          padding-right: 10px;
+        .login, &__nice-tag, &__todo{
+          @include buttons($blue, $font-black, $blue, $font-white);
         }
       }
     }
   }
 }
-
 .icon {
-  
   &-gray {
     color: #CCC;
-    
   }
-  
 }
-
-
 .btn {
   line-height: 32px;
   border-radius: 5px;
@@ -118,25 +101,5 @@
   margin: 10px 0;
 }
 
-.registration {
-  border: 2px solid #ea352d;
-  background: #ea352d;
-  color: #fff;
-  opacity: 0.9;
-  font-size: 13px;
-  transition-duration: 0.3s;
-  &:hover {
-    opacity: 1;
-  }
-}
 
-.login {
-  border: 2px solid #0099e8;
-  color: #0099e8;
-  transition-duration: 0.3s;
-  font-size: 13px;
-  &:hover {
-    background: #0099e8;
-    color: #fff;
-  }
-}
+
