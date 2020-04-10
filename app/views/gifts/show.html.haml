@@ -1,8 +1,9 @@
 = render 'shared/header'
 - breadcrumb :show
 = render "shared/breadcrumbs"
-.show
+.gift-main
   .show-wrapper
+    = render "layouts/notifications"
     .gift-about
       .individual-form
         .labels-wrapper
@@ -106,28 +107,29 @@
         %br
         .before-input
           = "¥#{@gift.price}"
-    - if user_signed_in?
-      - if @gift.listing_state == 2
-        .hidden-form
+    .form-buttons
+      - if user_signed_in?
+        - if @gift.listing_state == 2
           .cautions 
             ※すでに購入されたか、他のユーザーが交渉中の商品です
-          = link_to "ホーム", :root, id: "submit"
-          = link_to "マイページ", :mypage_listed_all, id: "submit"
-      - elsif @gift.user_id != current_user.id
-        = form_with(url: "/purchase/index", method: :get) do |f|
-          = f.hidden_field :gift_id, value: "#{@gift.id}"
-          = link_to "ホーム", :root, id: "submit"
-          = f.submit "購入確認画面へ進む", id: "pay_btn"
-      - else @gift.user_id == current_user.id
-        .hidden-form
+          .buttons
+            = link_to "ホーム", :root, class: "submit"
+            = link_to "マイページ", :mypage_listed_all, class: "submit"
+        - elsif @gift.user_id != current_user.id
+          = form_with(url: "/purchase/index", method: :get, class: "buttons") do |f|
+            = f.hidden_field :gift_id, value: "#{@gift.id}"
+            = link_to "ホーム", :root, class: "submit"
+            = f.submit "購入確認画面へ進む", class: "submit"
+        - else @gift.user_id == current_user.id
           .cautions 
             ※出品した商品です
-          = link_to "ホーム", :root, id: "submit"
-          = link_to "マイページ", :mypage_listed_all, id: "submit"
-    - elsif @gift.listing_state != 0
-      .hidden-form
+          .buttons
+            = link_to "ホーム", :root, class: "submit"
+            = link_to "マイページ", :mypage_listed_all, class: "submit"
+      - else
         .cautions 
           ※新規登録するか、ログインしてください
-        = link_to "新規登録", :signup_index, id: "submit"
-        = link_to "ログイン", :new_user_session, id: "submit"
+        .buttons
+          = link_to "新規登録", :signup_index, class: "submit"
+          = link_to "ログイン", :new_user_session, class: "submit"
 = render 'shared/footer' 

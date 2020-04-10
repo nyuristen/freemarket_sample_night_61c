@@ -106,3 +106,4 @@ gem 'gretel'
 gem 'rails-i18n'
 gem 'payjp'
 
+gem 'rails-i18n'

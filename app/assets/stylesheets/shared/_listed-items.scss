@@ -1,5 +1,4 @@
 .items{
-  height: calc(100vh - 350px - 24px);
   width: 100%;
   background-color: $global-background;
   border-radius: 3px;
@@ -8,12 +7,20 @@
   flex-wrap: wrap;
   &__item{
     padding: 1%;
-    height: 48%;
-    min-width: 100px;
-    width: calc((100% - 2% * 5) / 5 );
+    min-height: 150px;
+    min-width: 150px;
+    width: calc(100% / 5);
     font-size: 13px;
+    // @include box-centerise();
+    @include labels-wrapper();
+    .labels-wrapper{
+      .label, .required, .arbitrary, .cautions{
+        width: 100%;
+        @include textbox-centerise();
+      }
+    }
     .item-image{
-      height: 70%;
+      height: 65%;
       width: 100%;
       & img{
         height: 100%;
@@ -22,13 +29,44 @@
       }
     }
     .item-discriptions{
-      height: 30%;
+      height: 25%;
       width: 100%;
       overflow: hidden;
-      .item-discriptions--categories{
+      &--name{
+        font-size: 14px;
+        padding: 5%;
+        @include textbox-centerise();
+      }
+      &--categories{
+        font-size: 14px;
+        padding: 5%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        @include textbox-centerise();
+        .soldout{
+          background-color: $red;
+          border-radius: 5px;
+          padding: 10px;
+          color: $font-white;
+        }
+      }
+      @include form-buttons();
+      .form-buttons{
+        .buttons{
+          .submit{
+            font-size: 12px;
+            padding: 8px;
+          }
+          .edit-btn{
+            background-color: green;
+            color: $white;
+          }
+          .remove-btn{
+            background-color: $red;
+            color: $white;
+          }
+        }
       }
     }
   }

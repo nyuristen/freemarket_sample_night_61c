@@ -80,10 +80,10 @@
         padding: 5px;
         @include flex-box();
         .registration, &__news, &__mypage{
-          @include buttons($red, $font-black, $red, $font-white);
+          @include header-buttons($red, $font-black, $red, $font-white);
         }
         .login, &__nice-tag, &__todo{
-          @include buttons($blue, $font-black, $blue, $font-white);
+          @include header-buttons($blue, $font-black, $blue, $font-white);
         }
       }
     }

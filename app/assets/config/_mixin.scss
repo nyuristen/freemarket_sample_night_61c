@@ -13,7 +13,35 @@
   align-items: center;
 }
 
-@mixin buttons($radius-color, $font-color, $hoverback-color, $hover-color){
+@mixin labels($color1: white, $color2: black){
+  background-color: $color1;
+  margin: 5px;
+  border-radius: 5px;
+  border: solid 2px $color1;
+  padding: 10px;
+  color: $color2;
+}
+@mixin labels-wrapper(){
+  .labels-wrapper{
+    display: flex;
+    .label{
+      @include labels(bisque, gray);
+    }
+    .required{
+      @include labels(greenyellow, white);
+    }
+    .arbitrary{
+      @include labels(rgb(48, 191, 204), white);
+    }
+    .cautions{
+      @include labels();
+    }
+  }
+}
+
+
+
+@mixin header-buttons($radius-color, $font-color, $hoverback-color, $hover-color){
   padding: 5px;
   margin-right: 5px;
   border: 2px solid $radius-color;
@@ -31,36 +59,39 @@
   }
 }
 
-@mixin labels($color1: white, $color2: black){
-  background-color: $color1;
-  margin: 5px;
-  border-radius: 5px;
-  border: solid 2px $color1;
-  padding: 10px;
-  color: $color2;
-}
-
-// :new, :edit, :show で使用
-@mixin forms(){
-  .individual-form{
-    width: 80%;
-    margin: 0px auto;
+@mixin form-buttons(){
+  .form-buttons{
     padding: 5%;
-    .labels-wrapper{
-      display: flex;
-      .label{
-        @include labels(bisque, gray);
-      }
-      .required{
-        @include labels(greenyellow, white);
-      }
-      .arbitrary{
-        @include labels(rgb(48, 191, 204), white);
-      }
-      .cautions{
-        @include labels();
+    .cautions{
+      @include labels();
+      @include textbox-centerise();
+    }
+    .buttons{
+      @include flex-box();
+      .submit{
+        display       : inline-block;
+        border-radius : 5%;          /* 角丸       */
+        font-size     : 18pt;        /* 文字サイズ */
+        cursor        : pointer;     /* カーソル   */
+        padding       : 12px 12px;   /* 余白       */
+        background    : $blue;     /* 背景色     */
+        color         : $font-white;     /* 文字色     */
+        line-height   : 1em;         /* 1行の高さ  */
+        transition    : .3s;         /* なめらか変化 */
+        @include textbox-centerise();
       }
     }
+  }
+}
+
+
+// :new, :edit, :show で使用
+@mixin individual-form(){
+  .individual-form{
+    width: 80%;
+    padding: 5%;
+    @include box-centerise();
+    @include labels-wrapper();
     .js-file_group{
       height: 40px;
       width: 95%;
@@ -111,10 +142,9 @@
       width: 95%;
     }
     .before-input{
-      width: 95%;
       font-size: 20px;
       padding: 10px;
-      background-color: rgb(224, 211, 211);
+      background-color: $white;
       @include textbox-centerise();
     }
   }

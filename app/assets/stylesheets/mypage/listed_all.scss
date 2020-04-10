@@ -1,11 +1,18 @@
 .mypage-main-content{
-  @import "shared/listed-items";
-  .items{
-    &__item{
-      .labels-wrapper{
-        .label{
-          @include labels($blue, $font-white);
-          @include textbox-centerise();
+  width: 80%;
+  .left-content{
+    width: 20%;
+  }
+  .items-wrapper{
+    width: 80%;
+    @import "shared/listed-items";
+    .items{
+      &__item{
+        .labels-wrapper{
+          .label{
+            @include labels($blue, $font-white);
+            @include textbox-centerise();
+          }
         }
       }
     }

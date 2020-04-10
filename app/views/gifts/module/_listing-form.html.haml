@@ -1,4 +1,5 @@
 .form-wrapper
+  = render "layouts/notifications"
   = form_for(@gift) do |f|
     .gift-about
       .individual-form
@@ -144,9 +145,10 @@
     = f.hidden_field :listing_state, value: 0
     -# 0: 出品中, 1: 交渉中, 2: 売却済, 3: 公開停止
     = f.hidden_field :user_id, value: "#{current_user.id}"
-    .submit
-      - if @gift.persisted?
-        = f.submit "編集完了", id: "submit"
-      - else
-        = f.submit "出品する", id: "submit"
+    .form-buttons
+      .buttons
+        - if @gift.persisted?
+          = f.submit "編集完了", class: "submit"
+        - else
+          = f.submit "出品する", class: "submit"
 

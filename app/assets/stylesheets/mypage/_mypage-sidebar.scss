@@ -4,7 +4,6 @@
   &__bar{
     font-size: 14px;
     margin-bottom: 40px;
-    
     }
     ul{
       padding-inline-start:0;
@@ -13,7 +12,6 @@
         padding: 16px;
         display: flex;
         align-items:center;
-       
         @include border_line;
         position: relative;
         a{

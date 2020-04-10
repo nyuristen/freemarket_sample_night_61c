@@ -1,9 +1,5 @@
-.edit{
+.gift-main{
   width: 100vw;
   background-color: $white;
-  .form{
-    padding-top: 100px;
-    padding-bottom: 50px;
-    @import "module/listing-form";
-  }
+  @import "module/listing-form";
 }

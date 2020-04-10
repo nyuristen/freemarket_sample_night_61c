@@ -1,11 +1,14 @@
 // notice, alert
 .notification {
-  text-align: center;  
+  width: 100%;
+  @include textbox-centerise();
   .notice {
-    background-color: $red;
+    padding: 5%;
+    background-color: $blue;
     color: $white;
   }
   .alert {
+    padding: 5%;
     background-color: $red;
     color: $white;
   }

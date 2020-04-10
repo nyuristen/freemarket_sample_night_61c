@@ -4,13 +4,13 @@
       .label
         出品中
     - elsif gift.listing_state == 1
-      .label
+      .required
         交渉中
     - elsif gift.listing_state == 2
-      .label
+      .arbitrary
         売却済
     - elsif gift.listing_state == 3
-      .label
+      .cautions
         公開停止
     - else 
       .label
@@ -23,6 +23,8 @@
       = "#{Category.find("#{gift.category_id}").parent.parent.name}/#{Category.find("#{gift.category_id}").parent.name}/#{Category.find("#{gift.category_id}").name}/"
       - if gift.brand_id != 0
         = "#{gift.brand.name}"
-    - if gift.listing_state != 2
-      %button.item-discriptions--edit-btn= link_to '編集', edit_gift_path(gift)
-    %button.item-discriptions--delete-btn= link_to '削除', gift_path(gift), method: :delete
+    .form-buttons
+      .buttons
+        - if gift.listing_state != 2
+          %button.submit.edit-btn= link_to '編集', edit_gift_path(gift)
+        %button.submit.remove-btn= link_to '削除', gift_path(gift), method: :delete
