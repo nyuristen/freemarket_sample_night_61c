@@ -20,7 +20,7 @@
       }
     }
     .item-image{
-      height: 65%;
+      height: 55%;
       width: 100%;
       & img{
         height: 100%;
@@ -51,21 +51,21 @@
           color: $font-white;
         }
       }
-      @include form-buttons();
-      .form-buttons{
-        .buttons{
-          .submit{
-            font-size: 12px;
-            padding: 8px;
-          }
-          .edit-btn{
-            background-color: green;
-            color: $white;
-          }
-          .remove-btn{
-            background-color: $red;
-            color: $white;
-          }
+    }
+    @include form-buttons();
+    .form-buttons{
+      .buttons{
+        .submit{
+          font-size: 12px;
+          padding: 8px;
+        }
+        .edit-btn{
+          background-color: green;
+          color: $white;
+        }
+        .remove-btn{
+          background-color: $red;
+          color: $white;
         }
       }
     }
