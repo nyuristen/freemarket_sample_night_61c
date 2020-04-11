@@ -11,7 +11,6 @@
     min-width: 150px;
     width: calc(100% / 5);
     font-size: 13px;
-    // @include box-centerise();
     @include labels-wrapper();
     .labels-wrapper{
       .label, .required, .arbitrary, .cautions{
@@ -29,7 +28,7 @@
       }
     }
     .item-discriptions{
-      height: 25%;
+      height: 30%;
       width: 100%;
       overflow: hidden;
       &--name{
@@ -44,28 +43,29 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         @include textbox-centerise();
-        .soldout{
-          background-color: $red;
-          border-radius: 5px;
-          padding: 10px;
-          color: $font-white;
-        }
       }
-    }
-    @include form-buttons();
-    .form-buttons{
-      .buttons{
-        .submit{
-          font-size: 12px;
-          padding: 8px;
-        }
-        .edit-btn{
-          background-color: green;
-          color: $white;
-        }
-        .remove-btn{
-          background-color: $red;
-          color: $white;
+      &--soldout{
+        background-color: $red;
+        border-radius: 5px;
+        padding: 10px;
+        color: $font-white;
+        @include textbox-centerise();
+      }
+      @include form-buttons();
+      .form-buttons{
+        .buttons{
+          .submit{
+            font-size: 12px;
+            padding: 8px;
+          }
+          .edit-btn{
+            background-color: green;
+            color: $white;
+          }
+          .remove-btn{
+            background-color: $red;
+            color: $white;
+          }
         }
       }
     }

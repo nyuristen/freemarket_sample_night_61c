@@ -1,10 +1,9 @@
 .mypage-main-content{
   width: 80%;
-  .left-content{
-    width: 20%;
-  }
+  @import "mypage/mypage-sidebar";
   .items-wrapper{
     width: 80%;
+    background-color: $white;
     @import "shared/listed-items";
     .items{
       &__item{
