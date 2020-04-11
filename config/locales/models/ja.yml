@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー
       address: 住所
+      gift: 商品
     attributes:
       user:
         email: メールアドレス
@@ -19,4 +20,14 @@ ja:
         postal_code: 郵便番号
         prefecture: 都道府県名
         city: 市町村名
-
+      gift:
+        name: 商品名
+        image: 商品画像
+        discription: 説明文
+        category_id: カテゴリー
+        brand_id: ブランド
+        status_id: 商品の状態
+        how_to_ship_id: 配送方法
+        region_id: 発送元地域
+        days_id: 発送までの日数
+        price: 販売価格

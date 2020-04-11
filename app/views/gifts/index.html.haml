@@ -1,5 +1,6 @@
-= render 'header'
-.main
+= render "layouts/notifications"
+= render 'shared/header'
+.gift-main
   .advertise-box__upper
     .head
       スマホで簡単
@@ -27,7 +28,7 @@
         新着アイテム
       .titles__more
         = link_to "もっと見る", root_path
-    = render 'listed-items'
+    = render 'gifts/module/listed-items'
   .popular-brands
     .popular-brands__title
       人気ブランド
@@ -46,7 +47,7 @@
         新着アイテム
       .titles__more
         = link_to "もっと見る", root_path
-    = render 'listed-items'
+    = render partial: 'gifts/module/listed-brand-items'
   .advertise-box__under
     .head
       スマホで簡単フリマアプリ
@@ -62,5 +63,5 @@
         %li
           = link_to "#" do
             = image_tag("https://www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?3135490372", width: "130px")
-= render 'footer'
-= render 'listing-button'
+= render 'shared/footer'
+= render 'gifts/module/listing-button'

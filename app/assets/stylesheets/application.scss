@@ -1,77 +1,47 @@
 /*
  *= require font-awesome
  */
-@import "reset";
+@import "../config/reset";
 @import "../config/mixin";
-@import "gifts/index";
-@import "gifts/new";
-@import "gifts/create";
-@import "gifts/edit";
-@import "gifts/update";
-@import "gifts/show";
+@import "../config/config";
 @import "font-awesome";
 @import "font-awesome-sprockets";
+@import "flash";
+@import "breadcrumbs";
+
 @import "shared/header";
 @import "shared/footer";
-@import "shared/flash";
+@import "shared/listed-items";
+
 @import "logout/index";
+
 @import "devise/new";
 @import "devise/signin-step1";
-@import "signup/signup-common";
-@import "signup/signup-index";
-@import "signup/signup-step2";
-@import "signup/signup-step3";
-@import "signup/signup-done";
+
+@import "signup/common";
+@import "signup/index";
+@import "signup/step2";
+@import "signup/step3";
+@import "signup/done";
+
 @import "mypage/variable/flex";
-@import "mypage/variable/mixin";
 @import "mypage/variable/variable";
 @import "mypage/mypage-sidebar";
 @import "mypage/mypage-index";
 @import "mypage/profile";
 @import "mypage/identification";
+@import "mypage/listed_all";
 
-// @import "mypage/card/index";
-// @import "mypage/card/new";
-@import "breadcrumbs";
+@import "gifts/module/listing-button";
+@import "gifts/index";
+@import "gifts/new";
+@import "gifts/edit";
+@import "gifts/show";
 
 @import "cards/index";
 @import "cards/new";
+
 @import "purchase/index";
 @import "purchase/done";
 
 
-// 全ページ共通のフォント
-* {
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-  color: #333;
-  box-sizing: border-box;
-}
-
-// 文字・背景色
-$global-background:#f5f5f5;
-$white:#fff;
-$gray:#eee;
-$hover-gray:#fafafa;
-$red:#ea352d;
-$link-blue: #0099e8;
-$font-black: #333333;
-
-a {
-  text-decoration: none;
-}
-.display_none {
-  display: none;
-}
-
-.notifications {
-  color: $white;
-  text-align: center;  
-
-  .notice {
-    background-color: lightBlue;
-  }
-
-  .alert {
-    background-color: orange;
-  }
-}

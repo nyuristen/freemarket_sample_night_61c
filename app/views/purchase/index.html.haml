@@ -1,4 +1,7 @@
-.main
+= render 'shared/header'
+-# - breadcrumb :purchase_index
+-# = render "layouts/breadcrumbs"
+.purchase-main
   .purchase-wrapper
     .purchase__title
       %h2 購入確認画面
@@ -22,3 +25,4 @@
         = f.hidden_field :gift_id, value: "#{@gift.id}", class: "gift_id"
         = f.hidden_field :buyer_id, value: "#{current_user.id}", class: "buyer_id"
         = f.submit "購入する", id: "submit"
+= render 'shared/footer'

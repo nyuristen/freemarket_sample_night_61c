@@ -1,7 +1,7 @@
 .profile_container
-  = render "gifts/header"
+  = render "shared/header"
   - breadcrumb :profile
-  = render "layouts/breadcrumbs"
+  = render "shared/breadcrumbs"
   .main-background
     .left-content
       = render 'mypage/modules/mypage-sidebar'
@@ -17,5 +17,4 @@
             %textarea{class:"textarea-default", name: "introduction", placeholder: "例)こんにちは！ ご覧いただきありがとうございます！"}
             %input{type: "hidden", value: "https://www.mercari.com/jp/mypage/profile/", name: "after_save_callback"}
             %input{type: "submit", value: "変更する", class: "btn-default btn-red"}
-= render "gifts/listing-button"
-= render "gifts/footer"
+= render "shared/footer"

@@ -1,6 +1,7 @@
-= render "header"
-.form
-  - breadcrumb :edit
-  = render "layouts/breadcrumbs"
-  = render 'listing-form'
-= render "footer"
+= render "shared/header"
+- breadcrumb :edit
+= render "shared/breadcrumbs"
+.gift-main
+  .form
+    = render 'gifts/module/listing-form'
+= render "shared/footer"

@@ -1,0 +1,30 @@
+.items__item
+  .labels-wrapper
+    - if gift.listing_state == 0
+      .label
+        出品中
+    - elsif gift.listing_state == 1
+      .required
+        交渉中
+    - elsif gift.listing_state == 2
+      .arbitrary
+        売却済
+    - elsif gift.listing_state == 3
+      .cautions
+        公開停止
+    - else 
+      .label
+        何これどういう状態？
+  .item-image
+    = image_tag Image.find_by(gift_id: "#{gift.id}").name.url
+  .item-discriptions
+    .item-discriptions--name= gift.name
+    .item-discriptions--categories
+      = "#{Category.find("#{gift.category_id}").parent.parent.name}/#{Category.find("#{gift.category_id}").parent.name}/#{Category.find("#{gift.category_id}").name}/"
+      - if gift.brand_id != 0
+        = "#{gift.brand.name}"
+  .form-buttons
+    .buttons
+      - if gift.listing_state != 2
+        %button.submit.edit-btn= link_to '編集', edit_gift_path(gift)
+      %button.submit.remove-btn= link_to '削除', gift_path(gift), method: :delete

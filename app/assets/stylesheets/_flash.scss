@@ -1,0 +1,23 @@
+// notice, alert
+.notification {
+  width: 100%;
+  @include textbox-centerise();
+  .notice {
+    padding: 5%;
+    background-color: $blue;
+    color: $white;
+  }
+  .alert {
+    padding: 5%;
+    background-color: $red;
+    color: $white;
+  }
+}
+.alert.alert-warning{
+  ul{
+    li{
+      color: #ea352d;
+      font-size: 15px;
+    }
+  }
+}

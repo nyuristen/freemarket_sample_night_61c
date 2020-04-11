@@ -1,8 +1,8 @@
 class GiftsController < ApplicationController
 
   before_action :get_gift, only: [:edit, :update, :show, :destroy]
+  before_action :get_gift_brands, only: [:index]
   before_action :get_category_parents, only: [:new, :edit]
-  before_action :get_brands, only: [:new, :edit]
 
   def index
     @gifts = Gift.includes(:images).order("created_at DESC")
@@ -12,17 +12,17 @@ class GiftsController < ApplicationController
       @gift = Gift.new
       @gift.images.new
     else
-      flash.now[:alert] = "ログインor新規登録行なってください"
+      flash[:alert] = "ログインor新規登録行なってください"
       redirect_to :new_user_session
     end
   end
   def create
     @gift = Gift.new(gift_params)
     if @gift.save
-      flash.now[:notice] = "商品の出品に成功しました"
-      render :create
+      flash[:notice] = "商品の出品に成功しました"
+      redirect_to action: "index"
     else
-      flash[:alert] = "入力に誤りがあります"
+      flash[:alert] = @gift.errors.full_messages
       redirect_to action: "new"
     end
   end
@@ -32,18 +32,23 @@ class GiftsController < ApplicationController
   end
   def update
     if @gift.update(gift_params)
-      flash.now[:notice] = "出品商品の編集を完了しました"
-      render :update
+      flash[:notice] = "出品商品の編集を完了しました"
+      redirect_to controller: "mypage", action: "listed_all"
     else
-      flash[:error] = '商品の出品に失敗しました'
+      flash[:alert] = @gift.errors.full_messages
       redirect_to action: "edit"
     end
   end
   def show
   end
   def destroy
-    @gift.destroy
-    redirect_to root_path
+    if @gift.destroy
+      flash[:notice] = "出品商品を削除しました"
+      redirect_to controller: "mypage", action: "listed_all"
+    else
+      flash[:alert] = @gift.errors.full_messages
+      redirect_to controller: "mypage", action: "listed_all"
+    end
   end
 
   def get_category_parents
@@ -55,11 +60,8 @@ class GiftsController < ApplicationController
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-  def get_brands
-    @brands = [{name: "---", id: nil}]
-    Brand.all.each do |b|
-      @brands << {name: "#{b.name}", id: "#{b.id}"}
-    end
+  def get_gift_brands
+    @gifts_with_brands = Gift.where.not(brand_id: 0)
   end
 
   private

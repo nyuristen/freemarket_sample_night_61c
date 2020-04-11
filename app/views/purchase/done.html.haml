@@ -1,3 +1,6 @@
+= render 'shared/header'
+-# - breadcrumb :purchase_done
+-# = render "layouts/breadcrumbs"
 .purchase-main
   .purchase-wrapper
     .purchase__title
@@ -19,3 +22,4 @@
           %label= exp_month + " / " + exp_year
     .hidden-form
       = link_to "ホームに戻る", :root, id: "submit"
+= render 'shared/footer'

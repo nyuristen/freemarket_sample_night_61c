@@ -1,8 +1,9 @@
-= render 'header'
-.show
-  - breadcrumb :show
-  = render "layouts/breadcrumbs"
+= render 'shared/header'
+- breadcrumb :show
+= render "shared/breadcrumbs"
+.gift-main
   .show-wrapper
+    = render "layouts/notifications"
     .gift-about
       .individual-form
         .labels-wrapper
@@ -47,7 +48,7 @@
             #listing-select-wrapper__box.listing-select-wrapper__box
               #grandchild_category.listing-select-wrapper__box--select
                 = Category.find(@gift.category_id).name
-      - if @gift.brand_id.present?
+      - if @gift.brand_id != 0
         .individual-form
           .labels-wrapper
             .label
@@ -55,8 +56,7 @@
             .arbitrary 任意
           %br
           .before-input
-            .brand-box#brand-box
-              = Brand.find(@gift.brand_id).name
+            = @gift.brand.name
       .individual-form
         .labels-wrapper
           .label
@@ -107,13 +107,29 @@
         %br
         .before-input
           = "¥#{@gift.price}"
-    - if @gift.listing_state != "0" 
-      .hidden-form
+    .form-buttons
+      - if user_signed_in?
+        - if @gift.listing_state == 2
+          .cautions 
+            ※すでに購入されたか、他のユーザーが交渉中の商品です
+          .buttons
+            = link_to "ホーム", :root, class: "submit"
+            = link_to "マイページ", :mypage_listed_all, class: "submit"
+        - elsif @gift.user_id != current_user.id
+          = form_with(url: "/purchase/index", method: :get, class: "buttons") do |f|
+            = f.hidden_field :gift_id, value: "#{@gift.id}"
+            = link_to "ホーム", :root, class: "submit"
+            = f.submit "購入確認画面へ進む", class: "submit"
+        - else @gift.user_id == current_user.id
+          .cautions 
+            ※出品した商品です
+          .buttons
+            = link_to "ホーム", :root, class: "submit"
+            = link_to "マイページ", :mypage_listed_all, class: "submit"
+      - else
         .cautions 
-          ※この商品はすでに購入されているか、他のユーザーが交渉中です
-        = link_to "ホームに戻る", :root, id: "submit"
-    - else 
-      = form_with(url: "/purchase/index", method: :get) do |f|
-        = f.hidden_field :gift_id, value: "#{@gift.id}"
-        = f.submit "購入確認画面へ進む", id: "pay_btn"
-= render 'footer' 
+          ※新規登録するか、ログインしてください
+        .buttons
+          = link_to "新規登録", :signup_index, class: "submit"
+          = link_to "ログイン", :new_user_session, class: "submit"
+= render 'shared/footer' 

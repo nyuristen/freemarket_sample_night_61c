@@ -1,8 +1,5 @@
-@import "module/header";
-.form{
+.gift-main{
   width: 100vw;
-  padding-top: 100px;
-  @import "breadcrumbs";
+  background-color: $white;
   @import "module/listing-form";
 }
-@import "module/footer";

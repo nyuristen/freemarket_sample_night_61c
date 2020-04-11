@@ -1,9 +1,7 @@
-// Place all the styles related to the purchase controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 .purchase-main{
   width: 100vw;
-  min-height: 100vh;
-  background-color: gray;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: $global-background;
   @import "purchase";
 }
