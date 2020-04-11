@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Sawarabi+Gothic'); 
-.gift-main{
+.index-main{
   font-family: 'Sawarabi Gothic', sans-serif;
   width: 100vw;
   .advertise-box__upper{
@@ -96,6 +96,7 @@
   }
   .new-items-box__brand{
     width: calc(100vw - 100px);
+    padding-bottom: 50px;
     @include box-centerise();
     .titles{
       height: 24px;
