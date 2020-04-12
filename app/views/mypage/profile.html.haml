@@ -1,10 +1,9 @@
-.profile_container
-  = render "shared/header"
-  - breadcrumb :profile
-  = render "shared/breadcrumbs"
-  .main-background
-    .left-content
-      = render 'mypage/modules/mypage-sidebar'
+= render "shared/header"
+- breadcrumb :profile
+= render "shared/breadcrumbs"
+.mypage-main-content
+  = render 'mypage/modules/mypage-sidebar'
+  .profile_container
     .right-profile
       %section.right-container
         %h2.right-container__head プロフィール

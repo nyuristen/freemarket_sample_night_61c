@@ -5,6 +5,8 @@
   = render 'mypage/modules/mypage-sidebar'
   .items-wrapper
     = render "layouts/notifications"
+    .title
+      %h2 出品中商品一覧
     .items
       - if @gifts.where(listing_state: 0).blank?
         .items__item

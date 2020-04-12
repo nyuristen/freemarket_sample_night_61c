@@ -3,9 +3,10 @@
 = render partial: "shared/breadcrumbs"
 .mypage-main-content
   = render 'mypage/modules/mypage-sidebar'
-  .title
   .items-wrapper
     = render "layouts/notifications"
+    .title
+      %h2 出品商品一覧
     .items
       - if @gifts.blank?
         .items__item
