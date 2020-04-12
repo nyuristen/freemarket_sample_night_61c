@@ -3,11 +3,13 @@
 = render partial: "shared/breadcrumbs"
 .mypage-main-content
   = render 'mypage/modules/mypage-sidebar'
-  .items
-    - if @gifts.where(listing_state: 1).blank?
-      .items__item
-        取引中の商品はありません
-    - else
-      - @gifts.where(listing_state: 1).first(10).each do |gift|
-        = render partial: 'mypage/modules/mypage-listed-items', locals: { gift: gift }
+  .items-wrapper
+    = render "layouts/notifications"
+    .items
+      - if @gifts.where(listing_state: 1).blank?
+        .items__item
+          取引中の商品はありません
+      - else
+        - @gifts.where(listing_state: 1).first(10).each do |gift|
+          = render partial: 'mypage/modules/mypage-listed-items', locals: { gift: gift }
 = render 'shared/footer'

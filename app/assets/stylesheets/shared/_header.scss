@@ -1,8 +1,6 @@
 .header{
   width: 100vw;
   padding: 10px;
-  padding-bottom: 45px;
-  // position: fixed;
   background-color: $white;
   display: flex;
   z-index: 1;
@@ -80,10 +78,16 @@
         padding: 5px;
         @include flex-box();
         .registration, &__news, &__mypage{
-          @include header-buttons($red, $font-black, $red, $font-white);
+          @include hover($red, $font-white);
+          a{
+            @include headbtn($red, $font-white);
+          }
         }
         .login, &__nice-tag, &__todo{
-          @include header-buttons($blue, $font-black, $blue, $font-white);
+          @include hover($blue, $font-white);
+          a{
+            @include headbtn($blue, $font-white);
+          }
         }
       }
     }

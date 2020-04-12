@@ -39,9 +39,15 @@
   }
 }
 
+@mixin hover($hoverback-color, $hover-color){
+  & :hover{
+    background-color: $hoverback-color;
+    color: $hover-color;
+    opacity: 1;
+  }
+}
 
-
-@mixin header-buttons($radius-color, $font-color, $hoverback-color, $hover-color){
+@mixin headbtn($radius-color, $font-color){
   padding: 5px;
   margin-right: 5px;
   border: 2px solid $radius-color;
@@ -50,14 +56,8 @@
   font-size: 13px;
   opacity: 0.9;
   transition-duration: 0.3s;
-  &:hover {
-    background-color: $hoverback-color;
-    color: $hover-color;
-    opacity: 1;
-  }
-  span{
-  }
 }
+
 
 @mixin form-buttons(){
   .form-buttons{
@@ -83,7 +83,6 @@
     }
   }
 }
-
 
 // :new, :edit, :show で使用
 @mixin individual-form(){

@@ -34,6 +34,7 @@
               %span やることリスト
           %li.right-menu__mypage
             = link_to mypage_index_path do
+              = fa_icon 'address-card', class: "icon-gray"
               %span マイページ
       - else
         %ul.middle-menu
